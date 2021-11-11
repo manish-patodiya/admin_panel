@@ -1,2 +1,3 @@
 <?php
-header("Location: http://localhost/admin_panel/login.php");
+include "constants/constant.php";
+header("Location:" . BASE_URL . "login.php");

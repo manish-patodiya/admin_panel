@@ -1,7 +1,8 @@
 <?php
 session_start();
+include "constants/constant.php";
 if (isset($_SESSION['user_details']) && $_SESSION['user_details']['fname']) {
-    header("Location: http://localhost/admin_panel/admin/teachers.php");
+    header("Location: " . $BASE_URL . "admin/teachers.php");
 }
 ?>
 <html lang="en">

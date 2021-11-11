@@ -5,7 +5,7 @@ $(function () {
             page = 1;
         }
         let table = {
-            url: "http://localhost/admin_panel/server.php",
+            url: BASE_URL + "server.php",
             method: "post",
             data: {
                 frm_name: "show_students",
@@ -45,7 +45,7 @@ $(function () {
     showTable(1);
 
     $(document).on("click", ".btn-update", function () {
-        window.location = "http://localhost/admin_panel/admin/profile.php";
+        window.location = BASE_URL + "admin/profile.php";
     })
 
     $(document).on("click", ".btn-delete", function () {
@@ -65,7 +65,7 @@ $(function () {
     $("#frm-edit").submit(function (event) {
         event.preventDefault();
         let edit = {
-            url: "http://localhost/admin_panel/server.php",
+            url: BASE_URL + "server.php",
             method: "post",
             datatype: "json",
             data: $("#frm-edit").serialize(),
@@ -92,7 +92,7 @@ $(function () {
     $("#frm-delete").submit(function (event) {
         event.preventDefault();
         let dlt = {
-            url: "http://localhost/admin_panel/server.php",
+            url: BASE_URL + "server.php",
             method: "post",
             datatype: "json",
             data: $("#frm-delete").serialize(),
@@ -122,7 +122,7 @@ $(function () {
         if (!err) {
             $("#regis-err").hide();
             let dlt = {
-                url: "http://localhost/admin_panel/server.php",
+                url: BASE_URL + "server.php",
                 method: "post",
                 datatype: "json",
                 data: $("#frm-add").serialize(),
@@ -153,7 +153,7 @@ $(function () {
     checkEmail = () => {
         let value = $("#email").val();
         let email = {
-            url: "http://localhost/admin_panel/server.php",
+            url: BASE_URL + "server.php",
             data: {
                 frm_name: "email",
                 email: value,
@@ -175,14 +175,14 @@ $(function () {
 
     $("#btn-logout").click(function (event) {
         let logout = {
-            url: "http://localhost/admin_panel/server.php",
+            url: BASE_URL + "server.php",
             method: "post",
             datatype: "json",
             data: {
                 frm_name: "Logout",
             },
             success: function (res) {
-                window.location = "http://localhost/admin_panel/login.php";
+                window.location = BASE_URL + "login.php";
             },
             error: function (err) {
 

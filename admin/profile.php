@@ -63,6 +63,7 @@ include "../sidebar/sidebar.php";
                                     <h6 class="mb-0">Email</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary" id="email">
+                                    N/A
                                 </div>
                             </div>
                             <div class="row my-3">

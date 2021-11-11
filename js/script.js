@@ -12,7 +12,7 @@ $(function () {
     existEmail = (value) => {
         let result;
         let email = {
-            url: "http://localhost/admin_panel/server.php",
+            url: BASE_URL + "server.php",
             data: {
                 frm_name: "email",
                 email: value,
@@ -37,7 +37,7 @@ $(function () {
     existMobile = (value) => {
         let result;
         let username = {
-            url: "http://localhost/admin_panel/server.php",
+            url: BASE_URL + "server.php",
             data: {
                 frm_name: "mobile",
                 mobile: value,
@@ -110,7 +110,7 @@ $(function () {
             }
         }, submitHandler: function (form) {
             let register = {
-                url: "http://localhost/admin_panel/server.php",
+                url: BASE_URL + "server.php",
                 data: $("#frm-register").serialize(),
                 method: "post",
                 success: function (res) {
@@ -136,13 +136,13 @@ $(function () {
             },
         }, submitHandler: function (form) {
             let login = {
-                url: "http://localhost/admin_panel/server.php",
+                url: BASE_URL + "server.php",
                 data: $("#frm-login").serialize(),
                 method: "post",
                 success: function (res) {
                     let result = JSON.parse(res);
                     if (result.status == 1) {
-                        window.location = "http://localhost/admin_panel/admin/teachers.php";
+                        window.location = BASE_URL + "admin/teachers.php";
                     } else {
                         $("#login-err").html(result.msg);
                         $("#login-err").show();

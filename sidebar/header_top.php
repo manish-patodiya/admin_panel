@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "../constants/constant.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +14,9 @@ session_start();
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script>
+    const BASE_URL = "<?php echo BASE_URL; ?>";
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>

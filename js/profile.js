@@ -14,7 +14,7 @@ $(function () {
 
     showProfile = () => {
         let profile = {
-            url: "http://localhost/admin_panel/server.php",
+            url: BASE_URL + "server.php",
             data: {
                 frm_name: "profile",
             },
@@ -50,7 +50,7 @@ $(function () {
     existEmail = (value) => {
         let result;
         let email = {
-            url: "http://localhost/admin_panel/server.php",
+            url: BASE_URL + "server.php",
             data: {
                 frm_name: "email",
                 email: value,
@@ -75,7 +75,7 @@ $(function () {
     existMobile = (value) => {
         let result;
         let username = {
-            url: "http://localhost/admin_panel/server.php",
+            url: BASE_URL + "server.php",
             data: {
                 frm_name: "mobile",
                 mobile: value,
@@ -132,7 +132,7 @@ $(function () {
             // message
         }, submitHandler: function (form) {
             let register = {
-                url: "http://localhost/admin_panel/server.php",
+                url: BASE_URL + "server.php",
                 data: $("#frm-update").serialize(),
                 method: "post",
                 dataType: "json",
@@ -170,7 +170,7 @@ $(function () {
             },
         }, submitHandler: function (form) {
             let changepass = {
-                url: "http://localhost/admin_panel/server.php",
+                url: BASE_URL + "server.php",
                 data: $("#frm-change-pass").serialize(),
                 method: "post",
                 dataType: "json",
