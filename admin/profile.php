@@ -178,6 +178,7 @@ include "../sidebar/sidebar.php";
             </div>
         </div><!-- /.container-fluid -->
     </section>
-    <script src="../js/profile.js"></script>
-    <?php include "../sidebar/footer.php";?>
-    <?php include "../modals/change_pass_modal.php";?>
+</main>
+<script src="../js/profile.js"></script>
+<?php include "../sidebar/footer.php";?>
+<?php include "../modals/change_pass_modal.php";?>

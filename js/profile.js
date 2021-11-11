@@ -34,7 +34,8 @@ $(function () {
                     $("#i-lname").val(res.user_details[0]['last_name']);
                     $("#i-dob").val(res.user_details[0]['dob']);
                     $("#i-email").val(res.user_details[0]['email']);
-                    $("input[name=gender][value=" + res.user_details[0]['gender'] + "]").prop('checked', true);
+                    if ($('input').attr('gender'))
+                        $("input[name=gender][value=" + res.user_details[0]['gender'] + "]").prop('checked', true);
                     $("#i-mobile").val(res.user_details[0]['mobile']);
                     $("#i-address").val(res.user_details[0]['address']);
                 }
@@ -46,66 +47,6 @@ $(function () {
         $.ajax(profile);
     }
     showProfile();
-
-    existEmail = (value) => {
-        let result;
-        let email = {
-            url: BASE_URL + "server.php",
-            data: {
-                frm_name: "email",
-                email: value,
-            },
-            async: false,
-            method: "post",
-            success: function (res) {
-                result = JSON.parse(res);
-            },
-            error: function (err) {
-                console.log(err);
-            }
-        }
-        $.ajax(email);
-        if (result.status == 1) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    existMobile = (value) => {
-        let result;
-        let username = {
-            url: BASE_URL + "server.php",
-            data: {
-                frm_name: "mobile",
-                mobile: value,
-            },
-            async: false,
-            method: "post",
-            success: function (res) {
-                result = JSON.parse(res);
-            },
-            error: function (err) {
-                console.log(err);
-            }
-        }
-        $.ajax(username);
-        if (result.status == 1) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    jQuery.validator.addMethod("emailExist", function (value, element) {
-        let has = existEmail(value);
-        return this.optional(element) || has;
-    }, 'Email already exist!');
-
-    jQuery.validator.addMethod("mobileExist", function (value, element) {
-        let has = existMobile(value);
-        return this.optional(element) || has;
-    }, 'Mobile already exist!');
 
     $("#frm-update").validate({
         rules: {
@@ -120,13 +61,13 @@ $(function () {
             email: {
                 required: true,
                 email: true,
-                // emailExist: true
+                emailExist: true
             },
             mobile: {
                 required: true,
                 minlength: 10,
                 maxlength: 10,
-                // mobileExist: true
+                mobileExist: true
             },
         }, messages: {
             // message

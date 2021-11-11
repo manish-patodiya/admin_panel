@@ -64,14 +64,14 @@ switch ($form) {
 
 function emailExist($con)
 {
-    if (isset($_POST['temail'])) {
-        $email = $_POST['temail'];
-        $query = "select * from users WHERE role_id=2 AND email='$email'";
-    } else {
-        $email = $_POST['email'];
-        $query = "select * from users WHERE role_id=3 AND email='$email'";
-    }
+    $email = $_POST['email'];
+    $query = "select * from users WHERE role_id=3 AND email='$email'";
     $query_run = mysqli_query($con, $query);
+    if (isset($_SESSION['user_details']['uid']) && $_SESSION['user_details']['uid']) {
+        $id = $_SESSION['user_details']['uid'];
+        $query = "select * from users WHERE id !='$id' AND email='$email'";
+        $query_run = mysqli_query($con, $query);
+    }
     if (mysqli_fetch_row($query_run) > 0) {
         echo json_encode([
             "status" => 1,
@@ -90,8 +90,12 @@ function mobileExist($con)
 
     $mobile = $_POST['mobile'];
     $query = "select * from users WHERE role_id=3 AND mobile='$mobile'";
-
     $query_run = mysqli_query($con, $query);
+    if (isset($_SESSION['user_details']['uid']) && $_SESSION['user_details']['uid']) {
+        $id = $_SESSION['user_details']['uid'];
+        $query = "select * from users WHERE id !='$id' AND mobile='$mobile'";
+        $query_run = mysqli_query($con, $query);
+    }
     if (mysqli_fetch_row($query_run) > 0) {
         echo json_encode([
             "status" => 1,
