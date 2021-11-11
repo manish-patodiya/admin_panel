@@ -1,0 +1,62 @@
+.inputvalues {
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+}
+
+.inputvalues input {
+    outline: none;
+    border: none;
+    color: black !important;
+    font-size: 18px;
+    margin: 0 10px;
+    border-bottom: 1px solid black;
+    background: transparent;
+}
+
+#success-msg {
+    color: black;
+    font-size: 30px;
+    text-align: center;
+}
+
+#error-msg {
+    color: black;
+    font-size: 30px;
+    text-align: center;
+}
+
+.w-40{
+    width : 40%;
+}
+
+.circle {
+    width: 175px;
+    height: 175px;
+    border: 2px solid;
+    border-radius: 100%;
+    padding-top: 25px;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+main{
+    width: calc(100% - 280px);
+    position: absolute;
+    right: 0;
+}
+
+ #users-table th{
+    padding: 8px 19px;
+}
+
+/*#users-table tr{
+    border: 0.3px solid gray;
+}*/
+
+#users-table td{
+    padding: 8px 19px;
+} 
