@@ -132,7 +132,7 @@ function login($con)
     $email = $_POST['email'];
     $query = "select * from users WHERE email = '$email' OR mobile='$email'";
     $query_run = mysqli_query($con, $query);
-    if ($row = mysqli_fetch_assoc($query_run)) {
+    while ($row = mysqli_fetch_assoc($query_run)) {
         $password = md5($_POST['password']);
         if ($row["password"] == $password) {
             $query1 = "SELECT u.id,u.email,up.first_name,up.last_name FROM users u JOIN users_profile up ON u.id = up.user_id WHERE u.id=$row[id]";
@@ -148,18 +148,14 @@ function login($con)
                 "status" => 1,
                 "msg" => "success!",
             ]);
-        } else {
-            echo json_encode([
-                "status" => 0,
-                "msg" => "Wrong email or password!",
-            ]);
+            return;
         }
-    } else {
-        echo json_encode([
-            "status" => 0,
-            "msg" => "Wrong email or password!",
-        ]);
     }
+    echo json_encode([
+        "status" => 0,
+        "msg" => "Wrong email or password!",
+    ]);
+
 }
 
 function addStudent($con)
