@@ -142,7 +142,6 @@ function login($con)
                 "uid" => $row1['id'],
                 "fname" => $row1['first_name'],
                 "lname" => $row1['last_name'],
-                "email" => $row['email'],
             ];
             echo json_encode([
                 "status" => 1,
@@ -283,7 +282,6 @@ function updateProfile($con)
         "uid" => $id,
         "fname" => $fname,
         "lname" => $lname,
-        "email" => $email,
     ];
     echo json_encode([
         "status" => 1,

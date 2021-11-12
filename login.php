@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "constants/constant.php";
-if (isset($_SESSION['user_details']) && $_SESSION['user_details']['fname']) {
+if (isset($_SESSION['user_details']) && $_SESSION['user_details']['uid']) {
     header("Location: " . $BASE_URL . "admin/teachers.php");
 }
 ?>
