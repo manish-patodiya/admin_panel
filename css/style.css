@@ -43,10 +43,18 @@ a{
     cursor: pointer;
 }
 
-main{
-    width: calc(100% - 280px);
-    position: absolute;
-    right: 0;
+#sidebar{
+    position:fixed;
+    width: 280px;
+    left:0;
+    bottom:0;
+    top:0;
+}
+#content{
+    position:absolute;
+    left:280px;
+    right:0;
+    top:0;
 }
 
  #users-table th{

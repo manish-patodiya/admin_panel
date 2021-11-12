@@ -1,9 +1,6 @@
 <?php
 session_start();
 include "constants/constant.php";
-if (isset($_SESSION['user_details']) && $_SESSION['user_details']['uid']) {
-    header("Location: " . $BASE_URL . "admin/teachers.php");
-}
 ?>
 <html lang="en">
 
@@ -29,6 +26,9 @@ if (isset($_SESSION['user_details']) && $_SESSION['user_details']['uid']) {
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <?php if (isset($_SESSION['user_details']) && $_SESSION['user_details']['uid']) {?>
+    <script src="js/roles.js"></script>
+    <?php }?>
 </head>
 
 <body class="bg-light">

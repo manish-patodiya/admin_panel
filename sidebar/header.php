@@ -1,4 +1,4 @@
-<header class="header p-3 bg-light" style="height:62px">
+<header class="header p-3 bg-white" style="height:62px">
     <button class="btn btn-outline-dark me-3 " id="btn-add">Add </button>
     <!-- <button class="btn btn-outline-dark fas fa-sign-out-alt" id="btn-logout">Log Out</button> -->
     <div class="float-end ">

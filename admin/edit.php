@@ -2,7 +2,8 @@
 include "../sidebar/header_top.php";
 include "../sidebar/sidebar.php";
 ?>
-<main>
+<div id="content">
+    <?php include "../sidebar/header.php";?>
     <div class="row">
         <div class="col-md-5 border-right m-1">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
@@ -110,5 +111,5 @@ include "../sidebar/sidebar.php";
             </form>
         </div>
     </div>
-</main>
+</div>
 <?php include "../sidebar/footer.php"?>

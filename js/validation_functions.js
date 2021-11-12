@@ -7,15 +7,17 @@ existEmail = (value) => {
             email: value,
         },
         async: false,
+        dataType: "json",
         method: "post",
         success: function (res) {
-            result = JSON.parse(res);
+            result = res;
         },
         error: function (err) {
             console.log(err);
         }
     }
     $.ajax(email);
+
     if (result.status == 1) {
         return false;
     } else {

@@ -60,6 +60,10 @@ switch ($form) {
         changePass($con);
         break;
 
+    case "role":
+        checkRole($con);
+        break;
+
 }
 
 function emailExist($con)
@@ -310,7 +314,24 @@ function changePass($con)
     }
 }
 
+function checkRole($con)
+{
+    $id = $_SESSION['user_details']['uid'];
+    $query = "SELECT role_id FROM users WHERE id='$id'";
+    $query_run = mysqli_query($con, $query);
+    $row = mysqli_fetch_assoc($query_run);
+    echo json_encode([
+        "status" => 1,
+        "msg" => "Successful",
+        "role_id" => $row['role_id'],
+    ]);
+}
+
 function logout()
 {
     unset($_SESSION['user_details']);
+    echo json_encode([
+        "status" => 1,
+        "msg" => "Success",
+    ]);
 }

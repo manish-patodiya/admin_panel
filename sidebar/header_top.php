@@ -1,6 +1,9 @@
 <?php
 session_start();
 include "../constants/constant.php";
+if (!isset($_SESSION['user_details'])) {
+    header("Location: " . BASE_URL);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

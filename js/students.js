@@ -174,22 +174,4 @@ $(function () {
         }
     }
 
-    $("#btn-logout").click(function (event) {
-        let logout = {
-            url: BASE_URL + "server.php",
-            method: "post",
-            datatype: "json",
-            data: {
-                frm_name: "Logout",
-            },
-            success: function (res) {
-                window.location = BASE_URL + "login.php";
-            },
-            error: function (err) {
-
-            }
-        };
-        $.ajax(logout);
-    });
-
 });

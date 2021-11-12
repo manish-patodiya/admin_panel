@@ -2,7 +2,7 @@
 include "../sidebar/header_top.php";
 include "../sidebar/sidebar.php";
 ?>
-<main class="p-3 bg-light">
+<div id="content" class="p-3 bg-light">
     <section class="content-header px-2 ">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -178,7 +178,7 @@ include "../sidebar/sidebar.php";
             </div>
         </div><!-- /.container-fluid -->
     </section>
-</main>
+</div>
 <script src="../js/profile.js"></script>
 <?php include "../sidebar/footer.php";?>
 <?php include "../modals/change_pass_modal.php";?>

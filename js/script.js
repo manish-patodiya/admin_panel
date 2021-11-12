@@ -69,7 +69,8 @@ $(function () {
             password: {
                 required: true,
             },
-        }, submitHandler: function (form) {
+        },
+        submitHandler: function (form) {
             let login = {
                 url: BASE_URL + "server.php",
                 data: $("#frm-login").serialize(),
@@ -77,7 +78,7 @@ $(function () {
                 success: function (res) {
                     let result = JSON.parse(res);
                     if (result.status == 1) {
-                        window.location = BASE_URL + "admin/teachers.php";
+                        window.location.reload();
                     } else {
                         $("#login-err").html(result.msg);
                         $("#login-err").show();

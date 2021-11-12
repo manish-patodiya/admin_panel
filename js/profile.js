@@ -34,7 +34,7 @@ $(function () {
                     $("#i-lname").val(res.user_details[0]['last_name']);
                     $("#i-dob").val(res.user_details[0]['dob']);
                     $("#i-email").val(res.user_details[0]['email']);
-                    if ($('input').attr('gender'))
+                    if (res.user_details[0]['gender'])
                         $("input[name=gender][value=" + res.user_details[0]['gender'] + "]").prop('checked', true);
                     $("#i-mobile").val(res.user_details[0]['mobile']);
                     $("#i-address").val(res.user_details[0]['address']);
