@@ -135,7 +135,7 @@ function login($con)
     while ($row = mysqli_fetch_assoc($query_run)) {
         $password = md5($_POST['password']);
         if ($row["password"] == $password) {
-            $query1 = "SELECT u.id,u.email,up.first_name,up.last_name FROM users u JOIN users_profile up ON u.id = up.user_id WHERE u.id=$row[id]";
+            $query1 = "SELECT u.id,u.email,up.first_name,up.last_name FROM users u LEFT JOIN users_profile up ON u.id = up.user_id WHERE u.id=$row[id]";
             $query_run1 = mysqli_query($con, $query1);
             $row1 = mysqli_fetch_assoc($query_run1);
             $_SESSION['user_details'] = [
@@ -208,7 +208,7 @@ function showStudentsTable($con)
 {
     $page = $_POST['page'];
     $offset = $page * PERPAGE - PERPAGE;
-    $query = "SELECT * from users where role_id=3 limit " . $offset . "," . PERPAGE;
+    $query = "SELECT u.time,u.email,u.mobile,up.first_name,up.last_name from users u LEFT JOIN users_profile up ON u.id = up.user_id where role_id=3 limit " . $offset . "," . PERPAGE;
     $query_run = mysqli_query($con, $query);
     $query1 = "SELECT count(*) FROM users WHERE role_id=3";
     $query_run1 = mysqli_query($con, $query1);
@@ -230,7 +230,7 @@ function showTeachersTable($con)
 {
     $page = $_POST['page'];
     $offset = $page * PERPAGE - PERPAGE;
-    $query = "SELECT * from users where role_id=2 limit " . $offset . "," . PERPAGE;
+    $query = "SELECT  u.time,u.email,u.mobile,up.first_name,up.last_name from users u LEFT JOIN users_profile up ON u.id = up.user_id where role_id=2 limit " . $offset . "," . PERPAGE;
     $query_run = mysqli_query($con, $query);
     $query1 = "SELECT count(*) FROM users WHERE role_id=2";
     $query_run1 = mysqli_query($con, $query1);
@@ -251,7 +251,7 @@ function showTeachersTable($con)
 function showProfile($con)
 {
     $id = $_SESSION['user_details']['uid'];
-    $query = "SELECT u.mobile,u.email,up.first_name,up.last_name,up.dob,up.gender,up.address FROM users u JOIN users_profile up ON u.id = up.user_id WHERE u.id=$id";
+    $query = "SELECT u.mobile,u.email,up.first_name,up.last_name,up.dob,up.gender,up.address FROM users u LEFT JOIN users_profile up ON u.id = up.user_id WHERE u.id=$id";
     $query_run = mysqli_query($con, $query);
     $user = [];
     if ($row = mysqli_fetch_assoc($query_run)) {

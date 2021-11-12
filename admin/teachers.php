@@ -10,7 +10,9 @@ include "../sidebar/sidebar.php";
         <table id="users-table" class="table table-responsive w-sm-auto">
             <thead>
                 <tr>
+                    <th>Name</th>
                     <th>Email Address</th>
+                    <th>Phone no.</th>
                     <th>Time</th>
                     <th>Actions</th>
                 </tr>

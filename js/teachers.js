@@ -22,7 +22,9 @@ $(function () {
                     var toyear = date.getFullYear();
                     var original_date = tomonth + '/' + todate + '/' + toyear;
                     $("#users-table").append(`<tr>
+                        <td>${data.first_name} ${data.last_name}</td>
                         <td>${data.email}</td>
+                        <td>${data.mobile}</td>
                         <td>${original_date}</td>
                         <td>                    
                             <a class="btn-update" uid="${data.id}" ><i class="fa fa-edit""></i></a>
@@ -45,7 +47,7 @@ $(function () {
     showTable(1);
 
     $(document).on("click", ".btn-update", function () {
-        window.location = BASE_URL + "admin/profile.php";
+        window.location = BASE_URL + "admin/edit.php";
     })
 
     $(document).on("click", ".btn-delete", function () {
